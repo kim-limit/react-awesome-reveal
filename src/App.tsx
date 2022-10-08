@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Fade, Zoom } from "react-awesome-reveal";
+import { Route, Router, Routes } from "react-router-dom";
+import { Slide1 } from "./slide1";
+import { Slide2 } from "./slide2";
+import { Slide3 } from "./slide3";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Slide1 />}></Route>
+        <Route path="/2" element={<Slide2 />}></Route>
+        <Route path="/3" element={<Slide3 />}></Route>
+      </Routes>
     </div>
   );
 }
