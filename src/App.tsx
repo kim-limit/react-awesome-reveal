@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { Route, Router, Routes } from "react-router-dom";
