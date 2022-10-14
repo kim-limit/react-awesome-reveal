@@ -5,14 +5,21 @@ import { useScroll } from "./useScroll";
 
 export const Slide2 = () => {
   const navigate = useNavigate();
-  const { scrollY } = useScroll();
+  const { scrollDir, isFirst } = useScroll();
 
   useEffect(() => {
-    // if (scrollY > 0) {
-    //   navigate("/3");
-    // }
-    console.log(scrollY);
-  }, [scrollY]);
+    if (isFirst) {
+      if (scrollDir === "up") {
+        navigate("/");
+      } else {
+        navigate("/3");
+      }
+      console.log(scrollDir);
+    }
+  }, [scrollDir]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div
       style={{
