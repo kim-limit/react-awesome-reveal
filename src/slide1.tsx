@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect, useRef } from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
@@ -9,14 +9,17 @@ export const Slide1 = () => {
   const navigate = useNavigate();
   const { scrollDir, isFirst } = useScroll();
 
-  useEffect(() => {
-    if (isFirst) {
-      if (scrollDir === "down") {
-        navigate("/2");
-      }
-    }
-  }, [scrollDir]);
+  // useEffect(() => {
+  //   if (isFirst) {
+  //     if (scrollDir === "down") {
+  //       navigate("/2");
+  //     }
+  //   }
+  // }, [scrollDir]);
 
+  const navigatePage = () => {
+    navigate("/2");
+  };
   return (
     <div
       style={{
@@ -55,12 +58,8 @@ export const Slide1 = () => {
           </Fade>
         </Grid>
       </Grid>
-      {/* <Fade>
-        <div
-          style={{ width: "100px", height: "100px", backgroundColor: "blue" }}
-        ></div>
-      </Fade>
-      <Zoom>줌</Zoom> */}
+
+      <Button onClick={navigatePage}>{"navigate page"}</Button>
     </div>
   );
 };
