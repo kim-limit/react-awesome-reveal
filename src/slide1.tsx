@@ -1,65 +1,52 @@
+import ReactFullpage from "@fullpage/react-fullpage";
 import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { useNavigate } from "react-router-dom";
+import { Box1 } from "./components/Box1";
+import { Header } from "./components/header";
+import { NavFrame } from "./components/NavFrame";
 import { useScroll } from "./useScroll";
-
+import backimg from "./backimg.jpg";
 export const Slide1 = () => {
-  const navigate = useNavigate();
-  const { scrollDir, isFirst } = useScroll();
-
-  // useEffect(() => {
-  //   if (isFirst) {
-  //     if (scrollDir === "down") {
-  //       navigate("/2");
-  //     }
-  //   }
-  // }, [scrollDir]);
-
-  const navigatePage = () => {
-    navigate("/2");
-  };
   return (
-    <div
-      style={{
-        height: "100vh",
-        padding: "0.5px",
-        // width: "100%",
-      }}
-    >
-      <Grid container>
-        <Grid item xs={5}>
-          <Fade duration={3000}>
-            <h2 style={{ fontSize: "4.2rem" }}>{"프리미엄 부동산 금융투자"}</h2>
-            <h3 style={{ fontSize: "3.2rem" }}>
-              {"자산가와 기관들의 투자가치를 당신에게"}
-            </h3>
-          </Fade>
-        </Grid>
-        <Grid item xs={7} display={"flex"}>
-          <Fade duration={3000} direction={"left"}>
-            <Box
-              sx={{
-                width: 300,
-                height: 500,
-                backgroundColor: "grey",
-              }}
-            />
-          </Fade>
-          <Fade duration={3000} direction={"right"}>
-            <Box
-              sx={{
-                width: 300,
-                height: 500,
-                backgroundColor: "grey",
-              }}
-            />
-          </Fade>
-        </Grid>
-      </Grid>
+    <ReactFullpage
+      //fullpage options
 
-      <Button onClick={navigatePage}>{"navigate page"}</Button>
-    </div>
+      licenseKey={"YOUR_KEY_HERE"}
+      scrollingSpeed={1000} /* Options here */
+      render={({ state, fullpageApi }) => {
+        return (
+          <ReactFullpage.Wrapper>
+            <NavFrame>
+              <Header />
+            </NavFrame>
+            <div
+              className="section"
+              style={{ backgroundImage: `url(${backimg})` }}
+            >
+              <Box1 />
+            </div>
+
+            <div
+              className="section"
+              style={{
+                backgroundColor: "#00ffff",
+              }}
+            >
+              <div style={{ height: "90vh" }}>
+                <Box1 />
+              </div>
+            </div>
+
+            <div className="section">section3</div>
+            <div className="section">
+              <Box1 />
+            </div>
+          </ReactFullpage.Wrapper>
+        );
+      }}
+    />
   );
 };
