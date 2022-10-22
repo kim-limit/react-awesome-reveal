@@ -11,7 +11,6 @@ export const NavFrame = ({ children }: INavFrameProps) => {
       <AppBar color="transparent">
         <Toolbar>{children}</Toolbar>
       </AppBar>
-      <Toolbar />
     </>
   );
 };

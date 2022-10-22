@@ -1,4 +1,6 @@
 import { Button, Typography } from "@mui/material";
+import { flexbox } from "@mui/system";
+import { Fade } from "react-awesome-reveal";
 
 import logo from "../logo.png";
 
@@ -7,7 +9,10 @@ export const Header = () => {
   return (
     <>
       <img src={logo} width={`100px`} height={`100px`} />
-      <Typography sx={{ flexGrow: 1 }}> </Typography>
+      <Fade direction={"left"}>
+        <Button style={{ marginLeft: "1000px" }}>fds</Button>
+      </Fade>
+      {/* <Typography sx={{ flexGrow: 1 }}> </Typography> */}
     </>
   );
 };

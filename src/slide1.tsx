@@ -7,46 +7,52 @@ import { useNavigate } from "react-router-dom";
 import { Box1 } from "./components/Box1";
 import { Header } from "./components/header";
 import { NavFrame } from "./components/NavFrame";
-import { useScroll } from "./useScroll";
+
 import backimg from "./backimg.jpg";
+
 export const Slide1 = () => {
   return (
-    <ReactFullpage
-      //fullpage options
+    <>
+      <NavFrame>
+        <Header />
+      </NavFrame>
+      <ReactFullpage
+        //fullpage options
 
-      licenseKey={"YOUR_KEY_HERE"}
-      scrollingSpeed={1000} /* Options here */
-      render={({ state, fullpageApi }) => {
-        return (
-          <ReactFullpage.Wrapper>
-            <NavFrame>
-              <Header />
-            </NavFrame>
-            <div
-              className="section"
-              style={{ backgroundImage: `url(${backimg})` }}
-            >
-              <Box1 />
-            </div>
+        licenseKey={"YOUR_KEY_HERE"}
+        scrollingSpeed={1000} /* Options here */
+        render={({ state, fullpageApi }) => {
+          return (
+            <ReactFullpage.Wrapper>
+              <div
+                className="section"
+                style={{ backgroundImage: `url(${backimg})` }}
+              >
+                <Box1 />
+                <Button>fsad</Button>
+              </div>
 
-            <div
-              className="section"
-              style={{
-                backgroundColor: "#00ffff",
-              }}
-            >
-              <div style={{ height: "90vh" }}>
+              <div
+                className="section"
+                style={
+                  {
+                    // backgroundColor: "#00ffff",
+                  }
+                }
+              >
+                <div style={{ height: "90vh" }}>
+                  <Box1 />
+                </div>
+              </div>
+
+              <div className="section">section3</div>
+              <div className="section">
                 <Box1 />
               </div>
-            </div>
-
-            <div className="section">section3</div>
-            <div className="section">
-              <Box1 />
-            </div>
-          </ReactFullpage.Wrapper>
-        );
-      }}
-    />
+            </ReactFullpage.Wrapper>
+          );
+        }}
+      />
+    </>
   );
 };
